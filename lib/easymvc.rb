@@ -8,10 +8,17 @@ module Easymvc
     def call(env)
       return [302, { "Location" => "/pages/about"}, []] if env["PATH_INFO"] == "/"
       return [500, { "Location" => "/pages/about"}, []] if env["PATH_INFO"] == "/favicon.ico"
-      controller_class, action = get_controller_and_action(env)
-      response = controller_class.new.send(action)
 
-      [200, { "Content-Type" => "Text/html" }, [response]]
+      controller_class, action = get_controller_and_action(env)
+      controller = controller_class.new(env)
+      response = controller.send(action)
+
+      if controller.get_response
+        controller.get_response
+      else
+        controller.render(action)
+        controller.get_response
+      end
     end
 
     def get_controller_and_action(env)
