@@ -1,5 +1,7 @@
 require "easymvc/version"
 require "easymvc/controller"
+require "easymvc/dependencies"
+require "easymvc/utils"
 
 module Easymvc
   class Application
