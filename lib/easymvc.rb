@@ -2,29 +2,23 @@ require "easymvc/version"
 require "easymvc/controller"
 require "easymvc/dependencies"
 require "easymvc/utils"
+require "easymvc/routing"
+
 
 module Easymvc
   class Application
     def call(env)
-      return [302, { "Location" => "/pages/about"}, []] if env["PATH_INFO"] == "/"
-      return [500, { "Location" => "/pages/about"}, []] if env["PATH_INFO"] == "/favicon.ico"
-
-      controller_class, action = get_controller_and_action(env)
-      controller = controller_class.new(env)
-      response = controller.send(action)
-
-      if controller.get_response
-        controller.get_response
-      else
-        controller.render(action)
-        controller.get_response
-      end
+      return [500, {}, []] if env["PATH_INFO"] == "/favicon.ico"
+      get_rack_app(env).call(env)
     end
 
-    def get_controller_and_action(env)
-      _, controller_name, action = env["PATH_INFO"].split("/")
-      controller_name = controller_name.capitalize + "Controller"
-      [Object.const_get(controller_name), action]
+    def route(&block)
+      @router ||= Easymvc::Routes.new
+      @router.instance_eval(&block)
+    end
+
+    def get_rack_app(env)
+      @router.check_url(env["PATH_INFO"])
     end
   end
 end
