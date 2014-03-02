@@ -5,7 +5,7 @@ require "easymvc/utils"
 require "easymvc/routing"
 require "easymvc/mapper"
 
-module Easymvc
+module EasyMvc
   class Application
     def call(env)
       return [500, {}, []] if env["PATH_INFO"] == "/favicon.ico"
@@ -13,7 +13,7 @@ module Easymvc
     end
 
     def route(&block)
-      @router ||= Easymvc::Routes.new
+      @router ||= EasyMvc::Routes.new
       @router.instance_eval(&block)
     end
 

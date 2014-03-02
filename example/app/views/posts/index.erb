@@ -1,0 +1,7 @@
+
+<% posts.each do |post| %>
+    <a href="/posts/edit?id=<%= post.id %>"><%= post.title %></a> -
+    <a href="/posts/delete?id=<%= post.id %>"> Delete </a></br>
+<% end %>
+
+<a href="/posts/new">Create new</a>

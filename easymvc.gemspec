@@ -5,11 +5,11 @@ require 'easymvc/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "easymvc"
-  spec.version       = Easymvc::VERSION
+  spec.version       = EasyMvc::VERSION
   spec.authors       = ["afurm"]
   spec.email         = ["furmanets.andriy@gmail.com"]
-  spec.summary       = %q{Easymvc.}
-  spec.description   = %q{Easymvc.}
+  spec.summary       = %q{EasyMvc.}
+  spec.description   = %q{EasyMvc.}
   spec.homepage      = ""
   spec.license       = "MIT"
 

@@ -1,4 +1,4 @@
-module Easymvc
+module EasyMvc
   class Routes
     def initialize
       @routes = []

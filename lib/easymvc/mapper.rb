@@ -1,6 +1,6 @@
 require 'sqlite3'
 
-module Easymvc
+module EasyMvc
   class Mapper
     @@db = SQLite3::Database.new File.join "db", "app.db"
     @@table_name = ""

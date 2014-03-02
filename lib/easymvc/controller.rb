@@ -1,6 +1,6 @@
 require 'erubis'
 
-module Easymvc
+module EasyMvc
   class Controller
     attr_reader :request
 

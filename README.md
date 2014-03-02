@@ -1,6 +1,7 @@
-# Easymvc
+# EasyMvc
 
-TODO: Write a gem description
+If you are going to build something small this framework for you.
+See example of using in 'example' folder.
 
 ## Installation
 
@@ -17,8 +18,9 @@ Or install it yourself as:
     $ gem install easymvc
 
 ## Usage
-
-TODO: Write usage instructions here
+ 1. Go to example folder
+ 2. Run 'rackup'
+ 3. Go to http://localhost:9292
 
 ## Contributing
 
