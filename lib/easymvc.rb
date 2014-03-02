@@ -3,7 +3,7 @@ require "easymvc/controller"
 require "easymvc/dependencies"
 require "easymvc/utils"
 require "easymvc/routing"
-
+require "easymvc/mapper"
 
 module Easymvc
   class Application
